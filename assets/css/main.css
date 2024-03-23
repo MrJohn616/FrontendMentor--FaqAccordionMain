@@ -1,0 +1,150 @@
+html {
+  height: 100vh;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: hsl(275, 100%, 97%);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  background-image: url(../images/background-pattern-desktop.svg);
+}
+
+.wrapper {
+  max-width: 680px;
+  border-radius: 15px;
+  margin: 30px;
+  background-color: hsl(0, 0%, 100%);
+}
+.wrapper .wrapper__card {
+  margin: 1.7em;
+}
+.wrapper .wrapper__card .card__header {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  font-size: 1.7em;
+  background-color: hsl(0, 0%, 100%);
+}
+.wrapper .wrapper__card .card__header .header__icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  background-size: 40px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-image: url(../images/icon-star.svg);
+}
+.wrapper .wrapper__card .card__header .header__title {
+  margin: 0.2em 0;
+  color: hsl(292, 42%, 14%);
+}
+.wrapper .wrapper__card .card__section {
+  position: relative;
+  overflow: hidden;
+}
+.wrapper .wrapper__card .card__section .section__header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+  font-size: 0.75em;
+  color: hsl(292, 42%, 14%);
+  background-color: hsl(0, 0%, 100%);
+  transition: color 0.3s ease-in-out;
+}
+.wrapper .wrapper__card .card__section .section__header .header__bttn {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-image: url(../images/icon-plus.svg);
+}
+.wrapper .wrapper__card .card__section .section__header .header__bttn--expand {
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-image: url(../images/icon-minus.svg);
+}
+.wrapper .wrapper__card .card__section .section__header .header__title {
+  box-sizing: border-box;
+  padding-right: 35px;
+}
+.wrapper .wrapper__card .card__section .section__header .hidden {
+  display: none;
+  overflow: hidden;
+}
+.wrapper .wrapper__card .card__section .section__header:hover {
+  color: hsl(292, 16%, 49%);
+}
+.wrapper .wrapper__card .card__section .section__content {
+  position: relative;
+  top: -150px;
+  z-index: 50;
+  height: 0;
+  max-height: 120px;
+  transition: top 0.5s ease-in-out, height 0.5s ease-in-out;
+  background-color: hsl(0, 0%, 100%);
+}
+.wrapper .wrapper__card .card__section .section__content .content__text {
+  margin-top: 0;
+  color: hsl(292, 16%, 49%);
+}
+.wrapper .wrapper__card .card__section .anim {
+  height: 600px;
+  top: 0;
+}
+.wrapper .wrapper__card .line::after {
+  display: flex;
+  content: " ";
+  border-top: 1px solid hsl(0, 0%, 94%);
+  width: 100%;
+}
+
+.attribution {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-size: 0.7em;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (min-width: 670px) {
+  .wrapper .wrapper__card .card__section .section__content {
+    max-height: 65px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  body {
+    background-size: 150%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  body {
+    background-size: 350%;
+  }
+  .wrapper {
+    max-width: 95%;
+    margin: 0;
+  }
+}/*# sourceMappingURL=main.css.map */

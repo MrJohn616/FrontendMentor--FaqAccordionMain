@@ -1,0 +1,174 @@
+$media__small: 650px;
+$media__medium: 1000px;
+$media__tipical: 1420px;
+
+$color__p__purple--dark: hsl(292, 42%, 14%);
+$color__p__purple--grayish: hsl(292, 16%, 49%);
+$color__n__pink--light: hsl(275, 100%, 97%);
+$color__n__grey--light: hsl(0, 0%, 94%);
+$color__n__white: hsl(0, 0%, 100%);
+
+$font__size: 16px;
+$font__family: "Work Sans", sans-serif;
+$font__weight--light: 400;
+$font__weight--medium: 600;
+$font__weight--hard: 700;
+
+// General
+html{
+  height: 100vh;
+  font-family: $font__family;
+  font-size: $font__size;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: $color__n__pink--light;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+  background-image: url(../images/background-pattern-desktop.svg);
+}
+
+//mixin
+@mixin bttn{
+  position: absolute;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+}
+
+
+// Card
+.wrapper{
+  max-width: 680px;
+  border-radius: 15px;
+  margin: 30px;
+  background-color: $color__n__white;
+  .wrapper__card{
+    margin: 1.7em;
+    .card__header{
+      position: relative;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      font-size: 1.7em;
+      background-color: $color__n__white;
+      .header__icon{
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+        background-size: 40px 40px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-image: url(../images/icon-star.svg);
+      }
+      .header__title{
+        margin: 0.2em 0;
+        color: $color__p__purple--dark;
+      }
+    }
+    .card__section{
+      position: relative;
+      overflow: hidden;
+      .section__header{
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 100;
+        cursor: pointer;
+        font-size: 0.75em;
+        color: $color__p__purple--dark;
+        background-color: $color__n__white;
+        transition: color .3s ease-in-out;
+        .header__bttn{
+          @include bttn();
+          background-image: url(../images/icon-plus.svg);
+        }
+        .header__bttn--expand{
+          @include bttn();
+          background-image: url(../images/icon-minus.svg);
+        }
+        .header__title{
+          box-sizing: border-box;
+          padding-right: 35px;
+        }
+        .hidden{
+          display: none;
+          overflow: hidden;
+        }
+      }
+      .section__header:hover{
+        color: $color__p__purple--grayish;
+      }
+      .section__content{
+        position: relative;
+        top: -150px;
+        z-index: 50;
+        height: 0;
+        max-height: 120px;
+        transition: top .5s ease-in-out, height .5s ease-in-out;
+        background-color: $color__n__white;
+        .content__text{
+          margin-top: 0;
+          color: $color__p__purple--grayish;
+        }
+      }
+      .anim{
+        height: 600px;
+        top: 0;
+      }
+    }
+    .line::after{
+      display: flex;
+      content: " ";
+      border-top: 1px solid $color__n__grey--light;
+      width: 100%;
+    }
+  }
+}
+
+
+// Footer
+.attribution{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  font-size: 0.7em;
+  a { color: hsl(228, 45%, 44%); }
+}
+
+// Media Querties
+@media only screen and (min-width: 670px){
+  .wrapper{
+    .wrapper__card{
+      .card__section{
+        .section__content{
+          max-height: 65px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: $media__medium){
+  body{
+    background-size: 150%;
+  }
+}
+@media only screen and (max-width: $media__small){
+  body{
+    background-size: 350%;
+  }
+  .wrapper{
+    max-width: 95%;
+    margin: 0;
+  }
+}
